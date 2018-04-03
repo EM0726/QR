@@ -1,0 +1,69 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+int main()
+{
+	int m,n;
+	while(cin>>m)
+	{
+		if(m!=1)
+		{
+			int arr[1000]; 
+			memset(arr,0,1000);
+			for(int i=0;i<m;i++)
+			{
+				cin>>n;
+				arr[n]++;
+			}
+			n=0;
+			int max=arr[0];
+			for(int i=1;i<m;i++)
+			{
+				if(max<arr[i])
+				{
+					max=arr[i];
+					n=i;
+				}
+			}
+/*			
+			int max=arr[0];			//确定计数数组长度 
+			for(int i=1;i<m;i++)
+			{
+				if(max<arr[i])
+				{
+					max=arr[i];
+				}
+			}
+			int cnt[max];			//计数数组 
+			memset(cnt,0,max);
+			
+			for(int i=0;i<m;i++)
+			{
+				cnt[arr[i]-1]++;
+			}
+			
+			int n=cnt[arr[0]-1];
+			int x=arr[0];
+			for(int j=1;j<m;j++)
+			{
+				if(n<cnt[arr[j]-1])
+				{
+					n=cnt[arr[j]-1];
+					x=arr[j];
+				}
+			}
+*/ 
+			
+			cout<<n<<endl; 
+		}
+		else
+		{
+			int y;
+			cin>>y;
+			cout<<y<<endl;
+		}
+	}
+	
+	return 0;
+}
