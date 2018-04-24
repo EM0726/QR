@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std;
+int cnt=0;
+int bin(int b)
+{
+	int a;
+	a=b%2;
+	if(a==0)
+		cnt++;
+	b=b>>1;
+	if(b==0)
+		;
+	else
+		bin(b);
+//	cout<<a;
+}
+int main()
+{
+	int m;
+	cin>>m;
+	bin(m);
+//	cout<<endl;
+	cout<<cnt<<endl;
+	return 0;
+}
