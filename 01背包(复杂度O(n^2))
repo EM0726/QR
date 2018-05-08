@@ -1,0 +1,34 @@
+#include<iostream>
+#define max(a,b) a>b?a:b
+using namespace std;
+int w[233];
+int p[233];
+int bag(int i,int j,int now)  //处理第i件物品,剩余空间为j,当前价值为now
+{
+	if(i==-1)
+		return now;
+	if(j>=w[i])  //剩余空间能放下物品i 
+	{
+		int r1 = bag(i-1,j,now);  //不放物品i的结果
+		int r2 = bag(i-1,j-w[i],now+p[i]);  //放物品i的结果
+		now+=p[i];
+		return max(r1,r2);
+	} 
+	else
+		return bag(i-1,j,now);
+}
+
+int main()
+{
+	int V,n;
+	cin>>n>>V;
+	for(int i=0;i<n;i++)
+	{
+		cin>>w[i];
+		cin>>p[i];
+	}
+	
+	cout<<bag(n-1,V,0)<<endl; 
+	
+	return 0;
+}
