@@ -1,0 +1,27 @@
+#include<iostream>
+#define max(a,b) a>b?a:b
+using namespace std;
+
+int v[30];  //标程长度 
+int w[30];  //难度系数 
+int f[30][10000];
+
+int main()
+{
+	int n,m;
+	cin>>n>>m;
+	for(int i=1;i<=m;i++)
+		cin>>v[i]>>w[i];
+	for(int i=1;i<=m;i++)
+	{
+		for(int j=n;j>0;j--)  //j为剩余空间 
+		{
+			if(j>=v[i])  //未超出 
+				f[i][j]=max(f[i-1][j-v[i]]+w[i]*v[i],f[i-1][j]);
+			else
+				f[i][j]=f[i-1][j];
+		}
+	}
+	cout<<f[m][n]<<endl;
+	return 0;
+ } 
