@@ -1,0 +1,29 @@
+#include<iostream>
+#include<math.h> 
+using namespace std;
+
+int func(long long a)
+{
+	int cnt=0;
+	int x=a;
+	for(int i=1;i<=x;i++)
+	{
+		if(x%i==0)
+			cnt++;
+	}
+	return cnt;
+}
+
+int main()
+{
+	int n;
+	cin>>n;
+	long long num;
+	for(int i=0;i<n;i++)
+	{
+		cin>>num;
+		cout<<func(num)<<endl;
+	} 
+	
+	return 0;
+}
