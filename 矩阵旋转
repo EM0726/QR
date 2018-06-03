@@ -1,0 +1,70 @@
+#include<iostream>
+using namespace std;
+int a[10][10],b[10][10];
+int Is_0(int n)
+{
+	int flag=1;
+	for(int i=0;i<n;i++)
+		for(int j=0;j<n;j++)
+			if(a[i][j]!=b[i][j])
+				flag=0;
+	return flag;
+}
+
+int Is_90(int n)
+{
+	int flag=1;
+	for(int i=0;i<n;i++)
+		for(int j=0;j<n;j++)
+			if(a[i][j]!=b[j][n-i-1])
+				flag=0;
+	return flag;
+}
+
+int Is_180(int n)
+{
+	int flag=1;
+	for(int i=0;i<n;i++)
+		for(int j=0;j<n;j++)
+			if(a[i][j]!=b[n-j][n-i])
+				flag=0;
+	return flag;
+}
+
+int Is_270(int n)
+{
+	int flag=1;
+	for(int i=0;i<n;i++)
+		for(int j=0;j<n;j++)
+			if(a[i][j]!=b[n-j-1][i])
+				flag=0;
+	return flag;
+}
+
+
+int main()
+{
+	int n;
+	while(cin>>n)
+	{
+	
+		for(int i=0;i<n;i++)
+			for(int j=0;j<n;j++)
+				cin>>a[i][j];
+		for(int i=0;i<n;i++)
+			for(int j=0;j<n;j++)
+				cin>>b[i][j];
+		if(Is_0(n)==1)
+			cout<<0<<endl;
+		else if(Is_90(n)==1)
+			cout<<90<<endl;
+		else if(Is_180(n)==1)
+			cout<<180<<endl;
+		else if(Is_270(n)==1)
+			cout<<270<<endl;
+		else
+			cout<<-1<<endl;
+	}
+	return 0;
+}
+
